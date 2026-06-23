@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Laptop, Music, Volume2, HardDrive, Wifi, CreditCard, CheckCircle2, Euro, ChevronRight } from "lucide-react";
+import { Laptop, Music, Volume2, HardDrive, Wifi, CreditCard, CheckCircle2, ChevronRight } from "lucide-react";
 
 /**
  * @license
@@ -58,9 +58,9 @@ export default function App() {
               <motion.p 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-xs uppercase tracking-[0.4em] font-semibold text-accent-orange"
+                className="mb-4 text-[11px] md:text-xs uppercase tracking-[0.24em] md:tracking-[0.3em] font-semibold text-accent-orange"
               >
-                Conservatoire de Musique
+                Conservatoire de montélimar
               </motion.p>
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
@@ -87,7 +87,7 @@ export default function App() {
             transition={{ delay: 0.5 }}
             className="text-sm md:text-base italic border-l-2 border-accent-orange pl-4 max-w-xl"
           >
-            Dossier de proposition — Salle numérique partagée
+            Présentation
           </motion.p>
         </div>
       </header>
@@ -113,7 +113,7 @@ export default function App() {
           <SectionHeader 
             number="01" 
             title="Équipement Informatique" 
-            subtitle="Matériel dédié à la MAO" 
+            subtitle="Matériel adapté à une utilisation légère en MAO" 
           />
           
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
@@ -131,7 +131,7 @@ export default function App() {
 
             <div className="lg:col-span-3 bg-white p-10 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-center">
               <h4 className="text-2xl font-display text-primary-dark mb-6 border-b border-slate-100 pb-4">
-                Mac mini — puce Apple Silicon M1 minimum
+                Mac mini — puce Apple Silicon M4
               </h4>
               <ul className="grid grid-cols-1 md:grid-cols-1 gap-6">
                 {[
@@ -201,7 +201,7 @@ export default function App() {
                 "Idéal : filaire (Ethernet) — Connexion dédiée à la salle",
                 "Alternative : Wi-Fi dédié — Routeur Wi-Fi dédié",
                 "Indépendant du réseau professeurs et invité",
-                "Réseau séparé = sécurité & débit garantis"
+                "Réseau indépendant"
               ]}
             />
             <Card 
@@ -211,6 +211,7 @@ export default function App() {
               items={[
                 "YouTube Premium — Concerts, tutos, Back in track sans publicité",
                 "MuseScore Pro — Bibliothèque de partitions en ligne, fonctions avancées",
+                "Guitar Pro — Tablatures et partitions",
                 "Tomplay — Partitions interactives avec accompagnement audio synchronisé"
               ]}
             />
@@ -222,7 +223,7 @@ export default function App() {
           <SectionHeader 
             number="03" 
             title="Budget Estimatif" 
-            subtitle="Investissement initial · Fonctionnement annuel" 
+            subtitle="Investissement de départ" 
           />
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
@@ -238,12 +239,12 @@ export default function App() {
                 </h4>
                 <div className="space-y-6">
                   {[
-                    { label: "Mac mini × 3 (M1 min.)", price: "2 700 €" },
+                    { label: "Mac mini × 3 (M4)", price: "3 000 €" },
                     { label: "Périphériques d'occasion × 3", price: "300 €" },
                     { label: "Pack audio × 3", price: "1 500 €" },
                     { label: "NAS + disques", price: "600 €" },
                     { label: "Routeur Wi-Fi dédié", price: "200 €" },
-                    { label: "Logiciels (Ableton, etc.)", price: "1 200 €" },
+                    { label: "Licences des logiciels (Ableton, etc.)", price: "1 200 €" },
                   ].map((row, i) => (
                     <div key={i} className="flex justify-between items-center group">
                       <span className="text-slate-700 font-medium">{row.label}</span>
@@ -256,7 +257,7 @@ export default function App() {
                     className="flex justify-between items-center bg-primary-dark text-white p-6 rounded-2xl mt-10 shadow-xl"
                   >
                     <span className="font-display uppercase text-sm tracking-widest opacity-80">Total Investissement</span>
-                    <span className="text-3xl font-display text-accent-orange">~ 6 500 €</span>
+                    <span className="text-3xl font-display text-accent-orange">~ 6 800 €</span>
                   </motion.div>
                 </div>
               </motion.div>
@@ -273,8 +274,8 @@ export default function App() {
                 <div className="space-y-6">
                   {[
                     { label: "YouTube Premium", price: "140 €" },
-                    { label: "MuseScore Pro", price: "100 €" },
-                    { label: "Tomplay", price: "200 €" },
+                    { label: "MuseScore Pro", price: "50 €" },
+                    { label: "Tomplay", price: "300 €" },
                   ].map((row, i) => (
                     <div key={i} className="flex justify-between items-center group">
                       <span className="text-slate-700 font-medium">{row.label}</span>
@@ -287,7 +288,7 @@ export default function App() {
                     className="flex justify-between items-center bg-slate-100 text-primary-dark p-6 rounded-2xl mt-10 border border-slate-200"
                   >
                     <span className="font-display uppercase text-sm tracking-widest opacity-60 font-bold">Total / An</span>
-                    <span className="text-3xl font-display">~ 440 €</span>
+                    <span className="text-3xl font-display">~ 490 €</span>
                   </motion.div>
                 </div>
               </motion.div>
@@ -321,15 +322,6 @@ export default function App() {
                   ))}
                 </div>
                 
-                <div className="mt-12 pt-8 border-t border-slate-100 text-center">
-                  <div className="flex items-center justify-center gap-2 text-slate-300 mb-2">
-                    <Euro size={14} strokeWidth={3} />
-                    <span className="text-[10px] uppercase font-bold tracking-[0.2em]">Financement</span>
-                  </div>
-                  <p className="text-[10px] text-slate-400 font-medium px-4">
-                    Proposition soumise à validation budgétaire finale pour l'exercice 2026.
-                  </p>
-                </div>
               </motion.div>
             </aside>
           </div>
@@ -341,7 +333,7 @@ export default function App() {
           <div className="flex items-center gap-4">
             <div className="w-10 h-px bg-white/30" />
             <p className="text-[10px] uppercase font-bold tracking-[0.3em]">
-              Conservatoire de Musique
+              Conservatoire de Montélimar
             </p>
           </div>
           <p className="text-[10px] uppercase font-bold tracking-[0.3em]">
@@ -349,7 +341,7 @@ export default function App() {
           </p>
           <div className="flex items-center gap-4">
             <p className="text-[10px] uppercase font-bold tracking-[0.3em]">
-              Prop. Num. 1284
+              Guillaume Mostafa et Hyacinthe Chetoui
             </p>
             <div className="w-10 h-px bg-white/30" />
           </div>
